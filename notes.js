@@ -31,6 +31,7 @@ const removeNote = (deletedNote) => {
     let notesToKeep = allNotes.filter((note)=>{
         return note.Reminder!==deletedNote
     })
+    saveNotes(notesToKeep)
 }
 
 module.exports = {
