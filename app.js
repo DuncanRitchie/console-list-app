@@ -1,21 +1,28 @@
-const notes = require("./notes");
+const orders = require("./orders");
 const yargs = require("yargs");
 
-command = process.argv[2];
-
-switch (command) {
+switch (process.argv[2]) {
     case "add":
-    console.log(`Adding "${yargs.argv.note}"!`);
-    notes.addNotes(yargs.argv.note);
-    break;
+        if (process.argv[3]!==undefined) {
+            console.log(`Adding "${yargs.argv.order}"!`);
+    orders.addOrders(yargs.argv.order,yargs.argv.size,yargs.argv.extras);
+        }
+        else {
+            console.log(`You have to specify something to add! Try again!`);
+        }
+        break;
     case "remove":
-    console.log(`Removing "${yargs.argv.note}"!`);
-    notes.removeNote(yargs.argv.note);
-    break;
+        if (process.argv[3]!==undefined) {
+            console.log(`Removing "${yargs.argv.order}"!`);
+            orders.removeOrder(yargs.argv.order);}
+        else {
+            console.log(`You have to specify something to remove! Try again!`);
+        }
+        break;
     case "list":
-    console.log("Listing all notes!");
-    notes.listNotes();
-    break;
+        console.log("Listing all orders!");
+        orders.listOrders();
+        break;
     default:
     console.log("Command not recognised!")
 }
