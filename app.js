@@ -5,7 +5,7 @@ command = process.argv[2];
 
 switch (command) {
     case "add":
-    console.log("Adding a note!");
+    console.log(`Adding "${yargs.argv.note}"!`);
     notes.addNotes(yargs.argv.note);
     break;
     case "remove":
